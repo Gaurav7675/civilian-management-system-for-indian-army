@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Soldier Dashboard</title>
+<link rel="stylesheet" href="employee.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body data-rank="soldier">
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <span class="logo">🪖 SOLDIER</span>
+    <button id="toggleSidebar">☰</button>
+  </div>
+
+  <ul class="menu">
+    <li class="active">Dashboard</li>
+    <li>Profile</li>
+    <li>Apply Leave</li>
+    <li>Leave Status</li>
+    <li>Salary Slip</li>
+    <li>Transfer Status</li>
+  </ul>
+</div>
+
+<div class="main-content">
+  <h1 class="glow">Soldier Dashboard</h1>
+  <h2>Salary History</h2>
+
+<table id="historyTable" border="1">
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Basic</th>
+      <th>Allowances</th>
+      <th>Deductions</th>
+      <th>Net</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+
+  <div class="stats-container">
+    <div class="stat-card">
+      <h2 class="counter" data-target="12">0</h2>
+      <p>Leaves Taken</p>
+    </div>
+    <div class="stat-card">
+      <h2 class="counter" data-target="1">0</h2>
+      <p>Pending Requests</p>
+    </div>
+  </div>
+</div>
+
+<script src="employee.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>System Reports</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme-modules.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="soldier1.css">
+  <script src="security.js"></script>
+  <script src="auth.js"></script>
+</head>
+<body class="dashboard module-admin" data-rank="admin">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  <aside class="army-sidebar" id="sidebar">
+    <div class="logo"><span class="icon">&#128737;</span><span>ADMIN</span></div>
+    <nav class="nav-wrap">
+      <a href="admin.html"><span class="nav-icon">&#127968;</span><span>Dashboard</span></a>
+      <a href="admin-manage-users.html"><span class="nav-icon">&#128101;</span><span>Manage Users</span></a>
+      <a href="admin-reports.html" class="active"><span class="nav-icon">&#128203;</span><span>Reports</span></a>
+    </nav>
+    <a href="#" class="logout-link" onclick="logout(); return false;"><span class="nav-icon">&#128682;</span><span>Logout</span></a>
+  </aside>
+  <main class="army-main">
+    <h1 class="page-title">System Reports</h1>
+    <p class="army-subtitle" style="margin-bottom:20px">Performance and usage documentation</p>
+    <div class="report-cards" id="reportCards"></div>
+    <div class="army-card" style="margin-top:24px; padding:24px">
+      <h3 class="army-title" style="margin-bottom:12px">Summary Report</h3>
+      <pre id="reportSummary" class="report-pre"></pre>
+      <button type="button" class="army-btn" id="btnExport">Export as Text</button>
+    </div>
+  </main>
+  <script src="data.js"></script>
+  <script src="admin-reports.js"></script>
+  <script>var t=document.getElementById('menuToggle');var s=document.getElementById('sidebar');if(t&&s)t.addEventListener('click',function(){s.classList.toggle('open');});</script>
+</body>
+</html>

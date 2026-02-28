@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register Employee</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-body">
+  <div class="login-bg" aria-hidden="true"></div>
+  <div class="login-card army-card register-card">
+    <div class="login-header">
+      <span class="login-badge">&#9733;</span>
+      <h2 class="army-title">Register Employee</h2>
+      <p class="army-subtitle">Create a new system account</p>
+    </div>
+    <form id="registerForm" class="login-form">
+      <label class="army-label">Army ID / User ID</label>
+      <input type="text" id="regId" class="army-input" placeholder="e.g. ARMY2002" required>
+      <label class="army-label">Full Name</label>
+      <input type="text" id="regName" class="army-input" placeholder="Full name" required>
+      <label class="army-label">Role</label>
+      <select id="regRole" class="army-input" required>
+        <option value="">Select Role</option>
+        <option value="soldier">Soldier</option>
+        <option value="lieutenant">Lieutenant</option>
+        <option value="colonel">Colonel</option>
+        <option value="accountant">Accountant</option>
+        <option value="admin">Admin</option>
+      </select>
+      <label class="army-label">Rank</label>
+      <input type="text" id="regRank" class="army-input" placeholder="e.g. Sepoy, Captain" required>
+      <label class="army-label">Battalion (optional for soldiers)</label>
+      <select id="regBattalion" class="army-input">
+        <option value="">— Select —</option>
+      </select>
+      <label class="army-label">Phone</label>
+      <input type="tel" id="regPhone" class="army-input" placeholder="10-digit mobile">
+      <label class="army-label">Email</label>
+      <input type="email" id="regEmail" class="army-input" placeholder="email@army.mil">
+      <label class="army-label">Address</label>
+      <input type="text" id="regAddress" class="army-input" placeholder="Address">
+      <label class="army-label">Password</label>
+      <input type="password" id="regPassword" class="army-input" placeholder="Min 6 chars, use letters + numbers" required minlength="6">
+      <div class="password-strength" id="pwStrength"><div class="password-strength-bar"></div></div>
+      <span class="password-strength-label" id="pwStrengthLabel"></span>
+      <button type="submit" class="army-btn btn-block">Register</button>
+    </form>
+    <p class="form-footer"><a href="login.html">Back to Login</a></p>
+  </div>
+  <script src="data.js"></script>
+  <script src="register.js"></script>
+</body>
+</html>

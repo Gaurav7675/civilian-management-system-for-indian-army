@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Army Secure Login</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="login.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="login-body">
+  <div class="login-bg" aria-hidden="true"></div>
+  <div class="security-badge" title="Secure session · 30 min timeout">&#128274; SECURE</div>
+
+  <div class="login-wrapper">
+    <div class="login-steps">
+      <div class="step-dot active" data-step="1"><span>1</span></div>
+      <div class="step-line"></div>
+      <div class="step-dot" data-step="2"><span>2</span></div>
+    </div>
+    <p class="step-label" id="stepLabel">Enter credentials</p>
+
+    <div class="login-card army-card">
+      <div class="login-header">
+        <span class="login-badge">&#9733;</span>
+        <h2 class="army-title">Secure Login</h2>
+        <p class="army-subtitle" id="loginSubtitle">Step 1: Army ID &amp; Password</p>
+        <p class="security-message" id="securityMessage"></p>
+      </div>
+
+      <!-- Step 1: Credentials -->
+      <form id="loginForm" class="login-form login-step" data-step="1">
+        <label class="army-label">User ID / Army ID</label>
+        <input type="text" id="userid" placeholder="e.g. ARMY1023" autocomplete="username" class="army-input" maxlength="20">
+        <label class="army-label">Password</label>
+        <input type="password" id="password" placeholder="Password" autocomplete="current-password" class="army-input">
+        <label class="army-label">Role</label>
+        <select id="role" class="army-input">
+          <option value="">Select Role</option>
+          <option value="soldier">Soldier</option>
+          <option value="lieutenant">Lieutenant</option>
+          <option value="colonel">Colonel</option>
+          <option value="accountant">Accountant</option>
+          <option value="admin">Admin</option>
+        </select>
+        <div class="login-options">
+          <label class="checkbox-wrap">
+            <input type="checkbox" id="rememberDevice" checked>
+            <span>Secure this device</span>
+          </label>
+        </div>
+        <button type="submit" class="army-btn btn-block" id="btnSubmitCreds">Verify &amp; Send OTP</button>
+      </form>
+
+      <!-- Step 2: OTP -->
+      <div id="otpStep" class="login-step" data-step="2" style="display:none;">
+        <p class="otp-sent-msg" id="otpSentMsg">OTP sent to registered contact. Enter 6-digit code below.</p>
+        <div class="otp-inputs" id="otpInputs">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-i="0" autocomplete="one-time-code">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-i="1">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-i="2">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-i="3">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-i="4">
+          <input type="text" class="otp-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" data-i="5">
+        </div>
+        <p class="otp-demo-hint" id="otpDemoHint"></p>
+        <button type="button" class="army-btn secondary btn-block" id="btnResendOtp" disabled>Resend OTP (<span id="resendCount">60</span>s)</button>
+        <button type="button" class="army-btn btn-block" id="btnVerifyOtp">Verify OTP &amp; Login</button>
+        <button type="button" class="back-link" id="btnBackCreds">&#8592; Back to credentials</button>
+      </div>
+    </div>
+
+    <p class="form-footer">
+      <a href="register.html">Register</a> &nbsp;|&nbsp; <a href="reset-password.html">Reset Password</a>
+    </p>
+    <p class="login-notice">Session expires in 30 min. Login attempts are logged.</p>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="security.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

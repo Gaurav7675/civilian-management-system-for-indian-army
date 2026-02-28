@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manage Users</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme-modules.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="soldier1.css">
+  <script src="security.js"></script>
+  <script src="auth.js"></script>
+</head>
+<body class="dashboard module-admin" data-rank="admin">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  <aside class="army-sidebar" id="sidebar">
+    <div class="logo"><span class="icon">&#128737;</span><span>ADMIN</span></div>
+    <nav class="nav-wrap">
+      <a href="admin.html"><span class="nav-icon">&#127968;</span><span>Dashboard</span></a>
+      <a href="admin-manage-users.html" class="active"><span class="nav-icon">&#128101;</span><span>Manage Users</span></a>
+      <a href="admin-reports.html"><span class="nav-icon">&#128203;</span><span>Reports</span></a>
+    </nav>
+    <a href="#" class="logout-link" onclick="logout(); return false;"><span class="nav-icon">&#128682;</span><span>Logout</span></a>
+  </aside>
+  <main class="army-main">
+    <h1 class="page-title">Manage Users</h1>
+    <p class="army-subtitle" style="margin-bottom:20px">Create, update, or delete system users</p>
+    <button type="button" class="army-btn" id="btnAddUser">+ Add User</button>
+    <div class="table-wrap army-card" style="margin-top:20px">
+      <table class="data-table" id="usersTable">
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Role</th><th>Rank</th><th>Battalion</th><th>Actions</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+  <div class="popup" id="userPopup">
+    <div class="popup-content army-card" style="max-width:420px">
+      <h2 class="army-title" id="popupTitle">Add User</h2>
+      <input type="hidden" id="editUserId">
+      <label class="army-label">Army ID</label>
+      <input type="text" id="userId" class="army-input" placeholder="ARMYxxxx">
+      <label class="army-label">Name</label>
+      <input type="text" id="userName" class="army-input">
+      <label class="army-label">Role</label>
+      <select id="userRole" class="army-input">
+        <option value="soldier">Soldier</option>
+        <option value="lieutenant">Lieutenant</option>
+        <option value="colonel">Colonel</option>
+        <option value="accountant">Accountant</option>
+        <option value="admin">Admin</option>
+      </select>
+      <label class="army-label">Rank</label>
+      <input type="text" id="userRank" class="army-input" placeholder="Sepoy, Captain, etc.">
+      <label class="army-label">Battalion</label>
+      <select id="userBattalion" class="army-input"></select>
+      <label class="army-label">Password</label>
+      <input type="password" id="userPassword" class="army-input" placeholder="Leave blank to keep">
+      <div class="popup-buttons">
+        <button type="button" class="army-btn" id="btnSaveUser">Save</button>
+        <button type="button" class="army-btn secondary" onclick="document.getElementById('userPopup').style.display='none'">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script src="data.js"></script>
+  <script src="admin-manage-users.js"></script>
+  <script>var t=document.getElementById('menuToggle');var s=document.getElementById('sidebar');if(t&&s)t.addEventListener('click',function(){s.classList.toggle('open');});</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leave Records</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme-modules.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="soldier1.css">
+  <script src="security.js"></script>
+  <script src="auth.js"></script>
+</head>
+<body class="dashboard module-lieutenant" data-rank="lieutenant">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  <aside class="army-sidebar" id="sidebar">
+    <div class="logo"><span class="icon">&#128081;</span><span>LIEUTENANT</span></div>
+    <nav class="nav-wrap">
+      <a href="lieutenant.html"><span class="nav-icon">&#127968;</span><span>Dashboard</span></a>
+      <a href="lieutenant-approve-leave.html"><span class="nav-icon">&#128197;</span><span>Approve Leave</span></a>
+      <a href="lieutenant-employees.html"><span class="nav-icon">&#128101;</span><span>View Soldiers</span></a>
+      <a href="lieutenant-forward-transfer.html"><span class="nav-icon">&#128666;</span><span>Forward Transfer</span></a>
+      <a href="lieutenant-leave-records.html" class="active"><span class="nav-icon">&#128203;</span><span>Leave Records</span></a>
+    </nav>
+    <a href="#" class="logout-link" onclick="logout(); return false;"><span class="nav-icon">&#128682;</span><span>Logout</span></a>
+  </aside>
+  <main class="army-main">
+    <h1 class="page-title">Leave Records</h1>
+    <p class="army-subtitle" style="margin-bottom:20px">Past leave records for your battalion</p>
+    <div class="table-wrap army-card">
+      <table class="data-table" id="leaveRecordsTable">
+        <thead>
+          <tr><th>Employee</th><th>Type</th><th>From</th><th>To</th><th>Status</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+  <script src="data.js"></script>
+  <script src="lieutenant-leave-records.js"></script>
+  <script>var t=document.getElementById('menuToggle');var s=document.getElementById('sidebar');if(t&&s)t.addEventListener('click',function(){s.classList.toggle('open');});</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+/**
+ * Module-specific Army themes
+ * Soldier: War / field / combat
+ * Lieutenant: Tactical / command field
+ * Colonel: HQ / command center
+ * Accountant: Finance / ledger
+ * Admin: Control room / secure
+ */
+
+/* ---------- SOLDIER: War / Field / Combat ---------- */
+body.module-soldier,
+body.dashboard[data-rank="soldier"] {
+  --module-bg: #0a0f08;
+  --module-bg-alt: #121a0c;
+  --module-accent: #5c7a2e;
+  --module-accent-bright: #7a9e3a;
+  --module-panel: rgba(20, 28, 12, 0.95);
+  --module-border: rgba(92, 122, 46, 0.4);
+  --module-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm40 40h20v20H40V40z' fill='%233d4e1f' fill-opacity='0.15'/%3E%3C/svg%3E");
+}
+
+body.module-soldier .army-main,
+body.dashboard[data-rank="soldier"] .army-main {
+  background: var(--module-bg);
+  background-image: var(--module-pattern);
+}
+
+body.module-soldier .army-sidebar,
+body.dashboard[data-rank="soldier"] .army-sidebar {
+  background: linear-gradient(180deg, #141c0c 0%, #0d1308 100%);
+  border-right-color: var(--module-border);
+}
+
+body.module-soldier .army-sidebar .logo,
+body.dashboard[data-rank="soldier"] .army-sidebar .logo {
+  color: var(--module-accent-bright);
+  text-shadow: 0 0 12px rgba(122, 158, 58, 0.5);
+}
+
+body.module-soldier .page-title,
+body.dashboard[data-rank="soldier"] .page-title {
+  color: var(--module-accent-bright);
+  text-shadow: 0 0 20px rgba(122, 158, 58, 0.4);
+}
+
+body.module-soldier .stat-card,
+body.module-soldier .army-card,
+body.dashboard[data-rank="soldier"] .stat-card,
+body.dashboard[data-rank="soldier"] .army-card {
+  background: var(--module-panel);
+  border-color: var(--module-border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(92, 122, 46, 0.2);
+}
+
+body.module-soldier .stat-card h2,
+body.dashboard[data-rank="soldier"] .stat-card h2 {
+  color: var(--module-accent-bright);
+}
+
+body.module-soldier .army-sidebar nav a:hover,
+body.module-soldier .army-sidebar nav a.active,
+body.dashboard[data-rank="soldier"] .army-sidebar nav a:hover,
+body.dashboard[data-rank="soldier"] .army-sidebar nav a.active {
+  background: rgba(92, 122, 46, 0.2);
+  border-left-color: var(--module-accent-bright);
+  color: var(--module-accent-bright);
+}
+
+/* ---------- LIEUTENANT: Tactical / Map ---------- */
+body.module-lieutenant,
+body.dashboard[data-rank="lieutenant"] {
+  --module-bg: #0c1118;
+  --module-accent: #3a5a7a;
+  --module-accent-bright: #4a7a9e;
+  --module-panel: rgba(15, 22, 32, 0.95);
+  --module-border: rgba(58, 90, 122, 0.45);
+  --module-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233a5a7a' fill-opacity='0.08'%3E%3Cpath d='M0 0h2v40H0V0zm4 0h2v40H4V0z'/%3E%3Cpath d='M0 0h40v2H0V0zm0 8h40v2H0V8z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+body.module-lieutenant .army-main,
+body.dashboard[data-rank="lieutenant"] .army-main {
+  background: var(--module-bg);
+  background-image: var(--module-pattern);
+}
+
+body.module-lieutenant .army-sidebar,
+body.dashboard[data-rank="lieutenant"] .army-sidebar {
+  background: linear-gradient(180deg, #151e28 0%, #0c1118 100%);
+  border-right-color: var(--module-border);
+}
+
+body.module-lieutenant .army-sidebar .logo,
+body.dashboard[data-rank="lieutenant"] .army-sidebar .logo {
+  color: var(--module-accent-bright);
+}
+
+body.module-lieutenant .page-title,
+body.dashboard[data-rank="lieutenant"] .page-title {
+  color: var(--module-accent-bright);
+}
+
+body.module-lieutenant .stat-card,
+body.module-lieutenant .army-card,
+body.dashboard[data-rank="lieutenant"] .stat-card,
+body.dashboard[data-rank="lieutenant"] .army-card {
+  border-color: var(--module-border);
+}
+
+body.module-lieutenant .stat-card h2,
+body.dashboard[data-rank="lieutenant"] .stat-card h2 {
+  color: var(--module-accent-bright);
+}
+
+body.module-lieutenant .army-sidebar nav a:hover,
+body.module-lieutenant .army-sidebar nav a.active,
+body.dashboard[data-rank="lieutenant"] .army-sidebar nav a:hover,
+body.dashboard[data-rank="lieutenant"] .army-sidebar nav a.active {
+  background: rgba(58, 90, 122, 0.2);
+  border-left-color: var(--module-accent-bright);
+  color: var(--module-accent-bright);
+}
+
+/* ---------- COLONEL: Command Center / HQ ---------- */
+body.module-colonel,
+body.dashboard[data-rank="colonel"] {
+  --module-bg: #0f0d08;
+  --module-accent: #8b7312;
+  --module-accent-bright: #c9a227;
+  --module-panel: rgba(28, 24, 14, 0.95);
+  --module-border: rgba(201, 162, 39, 0.45);
+  --module-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h80v2H0V0zm0 78h80v2H0v-2zM0 0h2v80H0V0zm78 0h2v80h-2V0z' fill='%23c9a227' fill-opacity='0.06'/%3E%3C/svg%3E");
+}
+
+body.module-colonel .army-main,
+body.dashboard[data-rank="colonel"] .army-main {
+  background: var(--module-bg);
+  background-image: var(--module-pattern);
+}
+
+body.module-colonel .army-sidebar,
+body.dashboard[data-rank="colonel"] .army-sidebar {
+  background: linear-gradient(180deg, #1c1810 0%, #0f0d08 100%);
+  border-right-color: var(--module-border);
+}
+
+body.module-colonel .army-sidebar .logo,
+body.dashboard[data-rank="colonel"] .army-sidebar .logo {
+  color: var(--army-gold);
+  text-shadow: 0 0 16px rgba(201, 162, 39, 0.6);
+}
+
+body.module-colonel .page-title,
+body.dashboard[data-rank="colonel"] .page-title {
+  color: var(--army-gold);
+}
+
+body.module-colonel .stat-card,
+body.module-colonel .army-card,
+body.dashboard[data-rank="colonel"] .stat-card,
+body.dashboard[data-rank="colonel"] .army-card {
+  border-color: var(--module-border);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(201, 162, 39, 0.25);
+}
+
+body.module-colonel .stat-card h2,
+body.dashboard[data-rank="colonel"] .stat-card h2 {
+  color: var(--army-gold);
+}
+
+body.module-colonel .army-sidebar nav a:hover,
+body.module-colonel .army-sidebar nav a.active,
+body.dashboard[data-rank="colonel"] .army-sidebar nav a:hover,
+body.dashboard[data-rank="colonel"] .army-sidebar nav a.active {
+  background: rgba(201, 162, 39, 0.15);
+  border-left-color: var(--army-gold);
+  color: var(--army-gold);
+}
+
+/* ---------- ACCOUNTANT: Ledger / Finance ---------- */
+body.module-accountant,
+body.dashboard[data-rank="accountant"] {
+  --module-bg: #080f0d;
+  --module-accent: #1e5c4a;
+  --module-accent-bright: #2d8b6f;
+  --module-panel: rgba(12, 24, 20, 0.95);
+  --module-border: rgba(45, 139, 111, 0.4);
+  --module-pattern: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 15h30M15 0v30' stroke='%232d8b6f' stroke-opacity='0.1' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+body.module-accountant .army-main,
+body.dashboard[data-rank="accountant"] .army-main {
+  background: var(--module-bg);
+  background-image: var(--module-pattern);
+}
+
+body.module-accountant .army-sidebar,
+body.dashboard[data-rank="accountant"] .army-sidebar {
+  background: linear-gradient(180deg, #0f1c18 0%, #080f0d 100%);
+  border-right-color: var(--module-border);
+}
+
+body.module-accountant .army-sidebar .logo,
+body.dashboard[data-rank="accountant"] .army-sidebar .logo {
+  color: var(--module-accent-bright);
+}
+
+body.module-accountant .page-title,
+body.dashboard[data-rank="accountant"] .page-title {
+  color: var(--module-accent-bright);
+}
+
+body.module-accountant .stat-card,
+body.module-accountant .army-card,
+body.dashboard[data-rank="accountant"] .stat-card,
+body.dashboard[data-rank="accountant"] .army-card {
+  border-color: var(--module-border);
+}
+
+body.module-accountant .stat-card h2,
+body.dashboard[data-rank="accountant"] .stat-card h2 {
+  color: var(--module-accent-bright);
+}
+
+body.module-accountant .army-sidebar nav a:hover,
+body.module-accountant .army-sidebar nav a.active,
+body.dashboard[data-rank="accountant"] .army-sidebar nav a:hover,
+body.dashboard[data-rank="accountant"] .army-sidebar nav a.active {
+  background: rgba(45, 139, 111, 0.2);
+  border-left-color: var(--module-accent-bright);
+  color: var(--module-accent-bright);
+}
+
+/* ---------- ADMIN: Control Room / Secure ---------- */
+body.module-admin,
+body.dashboard[data-rank="admin"] {
+  --module-bg: #0d0808;
+  --module-accent: #8b3a3a;
+  --module-accent-bright: #b54a4a;
+  --module-panel: rgba(28, 14, 14, 0.95);
+  --module-border: rgba(181, 74, 74, 0.35);
+  --module-pattern: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 0v50M0 25h50' stroke='%23b54a4a' stroke-opacity='0.08' stroke-width='0.5'/%3E%3Ccircle cx='25' cy='25' r='1' fill='%23b54a4a' fill-opacity='0.15'/%3E%3C/svg%3E");
+}
+
+body.module-admin .army-main,
+body.dashboard[data-rank="admin"] .army-main {
+  background: var(--module-bg);
+  background-image: var(--module-pattern);
+}
+
+body.module-admin .army-sidebar,
+body.dashboard[data-rank="admin"] .army-sidebar {
+  background: linear-gradient(180deg, #1c1010 0%, #0d0808 100%);
+  border-right-color: var(--module-border);
+}
+
+body.module-admin .army-sidebar .logo,
+body.dashboard[data-rank="admin"] .army-sidebar .logo {
+  color: var(--module-accent-bright);
+  text-shadow: 0 0 12px rgba(181, 74, 74, 0.4);
+}
+
+body.module-admin .page-title,
+body.dashboard[data-rank="admin"] .page-title {
+  color: var(--module-accent-bright);
+}
+
+body.module-admin .stat-card,
+body.module-admin .army-card,
+body.dashboard[data-rank="admin"] .stat-card,
+body.dashboard[data-rank="admin"] .army-card {
+  border-color: var(--module-border);
+}
+
+body.module-admin .stat-card h2,
+body.dashboard[data-rank="admin"] .stat-card h2 {
+  color: var(--module-accent-bright);
+}
+
+body.module-admin .army-sidebar nav a:hover,
+body.module-admin .army-sidebar nav a.active,
+body.dashboard[data-rank="admin"] .army-sidebar nav a:hover,
+body.dashboard[data-rank="admin"] .army-sidebar nav a.active {
+  background: rgba(181, 74, 74, 0.2);
+  border-left-color: var(--module-accent-bright);
+  color: var(--module-accent-bright);
+}

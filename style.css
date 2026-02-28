@@ -1,0 +1,294 @@
+/* Landing & shared army styling - extends theme.css */
+
+.landing-bg-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+#army-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0f06;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% 20%, #1a2f0a 0%, transparent 50%),
+    radial-gradient(ellipse 60% 80% at 80% 80%, #0d1810 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm60 60h40v40H60V60z' fill='%232d3a16' fill-opacity='0.4'/%3E%3Cpath d='M50 0h20v20H50V0zm0 80h20v20H50V80z' fill='%231a2610' fill-opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.15), transparent);
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,162,39,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,39,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.landing .cards {
+  perspective: 1000px;
+}
+
+.landing .glass-card {
+  transform-style: preserve-3d;
+}
+
+.glass-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg, 14px);
+  box-shadow: 0 0 28px rgba(201, 162, 39, 0.25);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.glass-card:hover::after {
+  opacity: 1;
+}
+
+/* Landing hero */
+.landing .hero {
+  text-align: center;
+  padding: clamp(60px, 12vw, 140px) 24px 80px;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--army-brass);
+  border: 2px solid var(--panel-border);
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background: rgba(0,0,0,0.35);
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.2), 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  margin-bottom: 12px;
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+
+.hero-cta .army-btn {
+  margin-top: 0;
+}
+
+.hero-links {
+  margin-top: 16px !important;
+}
+
+/* Landing cards */
+.landing .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 0 24px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.landing .glass-card {
+  flex: 1 1 280px;
+  max-width: 340px;
+  padding: 28px 24px;
+  text-align: center;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  background: var(--panel-bg);
+  box-shadow: var(--shadow-panel);
+}
+
+.landing .card-icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: var(--army-brass);
+}
+
+.landing .glass-card h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--army-brass);
+  margin-bottom: 8px;
+}
+
+.landing .glass-card p {
+  font-size: 0.9rem;
+  color: var(--army-cream);
+  opacity: 0.9;
+}
+
+.landing-footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.8rem;
+  color: var(--army-brass);
+  opacity: 0.7;
+  border-top: 1px solid var(--glass-border);
+}
+
+.landing .army-btn {
+  position: relative;
+  border-width: 2px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.landing .army-btn {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Dashboard security indicator */
+.dashboard .security-indicator {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--army-brass);
+  background: rgba(0,0,0,0.5);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--panel-border);
+  z-index: 99;
+}
+
+/* Landing stats strip */
+.landing-stats {
+  max-width: 960px;
+  margin: 0 auto 56px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.stat-pill {
+  border-radius: 999px;
+  border: 1px solid var(--panel-border);
+  background: rgba(0, 0, 0, 0.55);
+  padding: 10px 18px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--army-cream);
+  opacity: 0.8;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--army-brass);
+}
+
+.stat-suffix {
+  font-size: 0.9rem;
+  color: var(--army-cream);
+}
+
+/* Landing timeline */
+.landing-timeline {
+  max-width: 960px;
+  margin: 0 auto 60px;
+  padding: 0 24px 12px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  background: radial-gradient(circle at top, rgba(201,162,39,0.06), transparent 55%);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+.timeline-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--army-brass);
+  background: rgba(0,0,0,0.5);
+}
+
+.timeline-content h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--army-brass);
+  margin-bottom: 4px;
+}
+
+.timeline-content p {
+  font-size: 0.88rem;
+  color: var(--army-cream);
+  opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+  .landing .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .landing .glass-card {
+    max-width: 100%;
+  }
+}

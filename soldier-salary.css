@@ -1,0 +1,43 @@
+.slip-container {
+  max-width: 480px;
+}
+
+.slip-card {
+  padding: 28px;
+  border: 1px solid var(--panel-border);
+}
+
+.slip-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--army-brass);
+  margin-bottom: 16px;
+}
+
+.slip-card p {
+  margin: 8px 0;
+  color: var(--army-cream);
+}
+
+.slip-hr {
+  border: none;
+  border-top: 1px solid var(--panel-border);
+  margin: 16px 0;
+}
+
+.net-salary {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--army-gold);
+  margin: 16px 0;
+}
+
+.slip-card .army-btn {
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media print {
+  .army-sidebar, .menu-toggle, .army-btn { display: none !important; }
+  .army-main { margin-left: 0 !important; }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme-modules.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="security.js"></script>
+  <script src="auth.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="dashboard module-admin" data-rank="admin">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  <aside class="army-sidebar" id="sidebar">
+    <div class="logo"><span class="icon">&#128737;</span><span>ADMIN</span></div>
+    <nav class="nav-wrap">
+      <a href="admin.html" class="active"><span class="nav-icon">&#127968;</span><span>Dashboard</span></a>
+      <a href="admin-manage-users.html"><span class="nav-icon">&#128101;</span><span>Manage Users</span></a>
+      <a href="admin-reports.html"><span class="nav-icon">&#128203;</span><span>Reports</span></a>
+    </nav>
+    <a href="#" class="logout-link" onclick="logout(); return false;"><span class="nav-icon">&#128682;</span><span>Logout</span></a>
+  </aside>
+  <main class="army-main">
+    <h1 class="page-title">Admin Control Center</h1>
+    <p class="army-subtitle" style="margin-bottom:20px">System-wide configuration and oversight.</p>
+    <div class="stats-grid" id="adminStats">
+      <div class="stat-card">
+        <h2 class="counter" data-target="0" id="totalUsers">0</h2>
+        <p>Total Users</p>
+      </div>
+      <div class="stat-card">
+        <h2 class="counter" data-target="0" id="totalLeaves">0</h2>
+        <p>Leave Records</p>
+      </div>
+      <div class="stat-card">
+        <h2 class="counter" data-target="0" id="totalSalaries">0</h2>
+        <p>Salary Records</p>
+      </div>
+    </div>
+  </main>
+  <script src="data.js"></script>
+  <script src="dashboard.js"></script>
+  <script>
+    (function() {
+      var u = typeof getAllUsers === "function" ? getAllUsers().length : 0;
+      var l = typeof getAllLeaves === "function" ? getAllLeaves().length : 0;
+      var s = typeof getAllSalaries === "function" ? getAllSalaries().length : 0;
+      document.getElementById("totalUsers").setAttribute("data-target", u);
+      document.getElementById("totalLeaves").setAttribute("data-target", l);
+      document.getElementById("totalSalaries").setAttribute("data-target", s);
+    })();
+  </script>
+  <script src="logout.js"></script>
+  <script>
+    var t = document.getElementById('menuToggle');
+    var s = document.getElementById('sidebar');
+    if (t && s) t.addEventListener('click', function(){ s.classList.toggle('open'); });
+  </script>
+</body>
+</html>

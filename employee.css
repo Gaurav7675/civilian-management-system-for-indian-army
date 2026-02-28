@@ -1,0 +1,186 @@
+:root {
+  --bg-dark: #050b10;
+  --glass: rgba(255,255,255,0.08);
+  --blur: blur(14px);
+  --soldier: #00ff88;
+  --text: #e6fdf7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #0a1a14, #050b10);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Glow */
+.glow {
+  text-shadow: 0 0 14px var(--soldier);
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  width: 260px;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: var(--blur);
+  padding: 20px;
+  transition: 0.4s;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--soldier);
+  font-weight: bold;
+}
+
+#toggleSidebar {
+  background: none;
+  border: none;
+  color: var(--soldier);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.menu li {
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu li:hover,
+.menu li.active {
+  background: linear-gradient(90deg, rgba(0,255,136,0.25), transparent);
+  box-shadow: 0 0 18px rgba(0,255,136,0.35);
+}
+
+/* Main */
+.main-content {
+  margin-left: 280px;
+  padding: 40px;
+  transition: 0.4s;
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: 100px;
+}
+
+/* Cards */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.stat-card {
+  background: var(--glass);
+  backdrop-filter: var(--blur);
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 35px rgba(0,255,136,0.4);
+}
+
+.stat-card h2 {
+  font-size: 38px;
+  color: var(--soldier);
+}
+.salary-processing {
+  max-width: 500px;
+  background: #1f1f2e;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.salary-processing h2 {
+  margin-bottom: 15px;
+}
+
+.salary-processing form {
+  display: flex;
+  flex-direction: column;
+}
+
+.salary-processing label {
+  margin-top: 10px;
+}
+
+.salary-processing input,
+.salary-processing select {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 5px;
+}
+
+.salary-processing button {
+  margin-top: 15px;
+  padding: 10px;
+  background: #00c896;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.salary-processing button:hover {
+  background: #00a67d;
+}
+.actions {
+  margin-top: 30px;
+}
+
+.actions button {
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+#output {
+  margin-top: 30px;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.slip {
+  background: #222;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.record {
+  padding: 10px;
+}

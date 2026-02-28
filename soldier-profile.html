@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soldier Profile</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme-modules.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="soldier1.css">
+  <script src="security.js"></script>
+  <script src="auth.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="dashboard module-soldier" data-rank="soldier">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  <aside class="army-sidebar" id="sidebar">
+    <div class="logo"><span class="icon">&#128274;</span><span>SOLDIER</span></div>
+    <nav class="nav-wrap">
+      <a href="soldier.html"><span class="nav-icon">&#127968;</span><span>Dashboard</span></a>
+      <a href="soldier-profile.html" class="active"><span class="nav-icon">&#128100;</span><span>Profile</span></a>
+      <a href="soldier-battalion.html"><span class="nav-icon">&#9873;</span><span>Battalion</span></a>
+      <a href="soldier-leave.html"><span class="nav-icon">&#128197;</span><span>Apply Leave</span></a>
+      <a href="soldier-leave-status.html"><span class="nav-icon">&#128203;</span><span>Leave Status</span></a>
+      <a href="soldier-salary.html"><span class="nav-icon">&#128176;</span><span>Salary Slip</span></a>
+      <a href="soldier-transfer.html"><span class="nav-icon">&#128666;</span><span>Transfer</span></a>
+    </nav>
+    <a href="#" class="logout-link" onclick="logout(); return false;"><span class="nav-icon">&#128682;</span><span>Logout</span></a>
+  </aside>
+  <main class="army-main">
+    <h1 class="page-title">My Profile</h1>
+    <div class="profile-card army-card" id="profileCard">
+      <p><b>Army ID:</b> <span id="pId">—</span></p>
+      <p><b>Name:</b> <span id="pName">—</span></p>
+      <p><b>Rank:</b> <span id="pRank">—</span></p>
+      <p><b>Battalion:</b> <span id="pBattalion">—</span></p>
+      <p><b>Phone:</b> <span id="pPhone">—</span></p>
+      <p><b>Address:</b> <span id="pAddress">—</span></p>
+      <button type="button" class="army-btn" id="editBtn">Edit Profile</button>
+    </div>
+  </main>
+  <div class="popup" id="editPopup">
+    <div class="popup-content army-card">
+      <h2 class="army-title">Edit Profile</h2>
+      <label class="army-label">Name</label>
+      <input type="text" id="editName" class="army-input">
+      <label class="army-label">Phone</label>
+      <input type="text" id="editPhone" class="army-input">
+      <label class="army-label">Address</label>
+      <input type="text" id="editAddress" class="army-input">
+      <div class="popup-buttons">
+        <button type="button" class="army-btn" onclick="saveProfile()">Save</button>
+        <button type="button" class="army-btn secondary" onclick="closePopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script src="data.js"></script>
+  <script src="soldier-profile.js"></script>
+  <script>
+    var t = document.getElementById('menuToggle');
+    var s = document.getElementById('sidebar');
+    if (t && s) t.addEventListener('click', function(){ s.classList.toggle('open'); });
+  </script>
+</body>
+</html>

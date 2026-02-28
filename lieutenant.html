@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lieutenant Dashboard</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme-modules.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="security.js"></script>
+  <script src="auth.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="dashboard module-lieutenant" data-rank="lieutenant">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  <aside class="army-sidebar" id="sidebar">
+    <div class="logo"><span class="icon">&#128081;</span><span>LIEUTENANT</span></div>
+    <nav class="nav-wrap">
+      <a href="lieutenant.html" class="active"><span class="nav-icon">&#127968;</span><span>Dashboard</span></a>
+      <a href="lieutenant-approve-leave.html"><span class="nav-icon">&#128197;</span><span>Approve Leave</span></a>
+      <a href="lieutenant-employees.html"><span class="nav-icon">&#128101;</span><span>View Soldiers</span></a>
+      <a href="lieutenant-forward-transfer.html"><span class="nav-icon">&#128666;</span><span>Forward Transfer</span></a>
+      <a href="lieutenant-leave-records.html"><span class="nav-icon">&#128203;</span><span>Leave Records</span></a>
+    </nav>
+    <a href="#" class="logout-link" onclick="logout(); return false;"><span class="nav-icon">&#128682;</span><span>Logout</span></a>
+  </aside>
+  <main class="army-main">
+    <h1 class="page-title">Lieutenant Dashboard</h1>
+    <p class="army-subtitle" style="margin-bottom:20px">Command &amp; approval panel for your unit.</p>
+    <div class="stats-grid" id="ltStats">
+      <div class="stat-card">
+        <h2 class="counter" data-target="0" id="pendingLeaves">0</h2>
+        <p>Pending Leaves</p>
+      </div>
+      <div class="stat-card">
+        <h2 class="counter" data-target="0" id="soldiersCount">0</h2>
+        <p>Soldiers Under Command</p>
+      </div>
+    </div>
+  </main>
+  <script src="data.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="logout.js"></script>
+  <script>
+    (function() {
+      var cu = typeof getCurrentUserFromDB === "function" ? getCurrentUserFromDB() : null;
+      if (cu && cu.battalion) {
+        var pending = typeof getPendingLeavesForBattalion === "function" ? getPendingLeavesForBattalion(cu.battalion) : [];
+        var soldiers = typeof getUsersByBattalion === "function" ? getUsersByBattalion(cu.battalion) : [];
+        document.getElementById("pendingLeaves").setAttribute("data-target", pending.length);
+        document.getElementById("soldiersCount").setAttribute("data-target", soldiers.length);
+      }
+      var t = document.getElementById("menuToggle");
+      var s = document.getElementById("sidebar");
+      if (t && s) t.addEventListener("click", function() { s.classList.toggle("open"); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apply Leave</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme-modules.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="soldier1.css">
+  <script src="security.js"></script>
+  <script src="auth.js"></script>
+</head>
+<body class="dashboard module-soldier" data-rank="soldier">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+  <aside class="army-sidebar" id="sidebar">
+    <div class="logo"><span class="icon">&#128274;</span><span>SOLDIER</span></div>
+    <nav class="nav-wrap">
+      <a href="soldier.html"><span class="nav-icon">&#127968;</span><span>Dashboard</span></a>
+      <a href="soldier-profile.html"><span class="nav-icon">&#128100;</span><span>Profile</span></a>
+      <a href="soldier-battalion.html"><span class="nav-icon">&#9873;</span><span>Battalion</span></a>
+      <a href="soldier-leave.html" class="active"><span class="nav-icon">&#128197;</span><span>Apply Leave</span></a>
+      <a href="soldier-leave-status.html"><span class="nav-icon">&#128203;</span><span>Leave Status</span></a>
+      <a href="soldier-salary.html"><span class="nav-icon">&#128176;</span><span>Salary Slip</span></a>
+      <a href="soldier-transfer.html"><span class="nav-icon">&#128666;</span><span>Transfer</span></a>
+    </nav>
+    <a href="#" class="logout-link" onclick="logout(); return false;"><span class="nav-icon">&#128682;</span><span>Logout</span></a>
+  </aside>
+  <main class="army-main">
+    <h1 class="page-title">Apply Leave</h1>
+    <form class="leave-form army-card" id="leaveForm">
+      <label class="army-label">Leave Type</label>
+      <select id="leaveType" class="army-input" required>
+        <option value="">Select</option>
+        <option value="Casual Leave">Casual Leave</option>
+        <option value="Medical Leave">Medical Leave</option>
+        <option value="Emergency Leave">Emergency Leave</option>
+      </select>
+      <label class="army-label">From Date</label>
+      <input type="date" id="fromDate" class="army-input" required>
+      <label class="army-label">To Date</label>
+      <input type="date" id="toDate" class="army-input" required>
+      <label class="army-label">Reason</label>
+      <textarea id="reason" class="army-input" rows="4" required placeholder="Brief reason for leave"></textarea>
+      <button type="submit" class="army-btn btn-block">Submit Request</button>
+    </form>
+  </main>
+  <script src="data.js"></script>
+  <script src="soldier1.js"></script>
+  <script>
+    var t = document.getElementById('menuToggle');
+    var s = document.getElementById('sidebar');
+    if (t && s) t.addEventListener('click', function(){ s.classList.toggle('open'); });
+  </script>
+</body>
+</html>

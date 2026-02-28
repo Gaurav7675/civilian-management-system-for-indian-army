@@ -1,0 +1,269 @@
+/**
+ * ARMY THEME - Unified military styling
+ * Colors: Olive, camo green, brass/gold, charcoal
+ */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Army palette */
+  --army-olive: #4a5d23;
+  --army-olive-dark: #2d3a16;
+  --army-camo: #3d4e1f;
+  --army-green: #1a2f0a;
+  --army-bg: #0d1408;
+  --army-charcoal: #1a1f14;
+  --army-brass: #c9a227;
+  --army-brass-dim: #8b7312;
+  --army-gold: #e8c547;
+  --army-cream: #e8e4d9;
+  --army-white: #f0ede5;
+  --army-red: #8b2500;
+  --army-success: #2d5a27;
+  --army-pending: #8b6914;
+  --army-danger: #8b2500;
+  /* Glass / panels */
+  --panel-bg: rgba(26, 31, 20, 0.92);
+  --panel-border: rgba(201, 162, 39, 0.35);
+  --glass-bg: rgba(74, 93, 35, 0.15);
+  --glass-border: rgba(201, 162, 39, 0.2);
+  /* Typography */
+  --font-display: 'Oswald', 'Rajdhani', sans-serif;
+  --font-body: 'Rajdhani', 'Segoe UI', sans-serif;
+  /* Spacing & radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-badge: 4px;
+  --shadow-panel: 0 4px 20px rgba(0,0,0,0.4), 0 0 1px rgba(201,162,39,0.3);
+  --shadow-glow: 0 0 20px rgba(201, 162, 39, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--army-bg);
+  color: var(--army-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Army typography */
+.army-title, h1.army-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--army-brass);
+  text-shadow: 0 0 24px rgba(201, 162, 39, 0.4);
+}
+
+.army-subtitle {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--army-cream);
+}
+
+/* Badge / label */
+.army-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--army-olive);
+  color: var(--army-brass);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-badge);
+}
+
+.army-badge.approved { background: var(--army-success); color: var(--army-cream); }
+.army-badge.pending { background: var(--army-pending); color: var(--army-gold); }
+.army-badge.rejected { background: var(--army-danger); color: var(--army-cream); }
+
+/* Cards & panels */
+.army-card, .stat-card, .card {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.army-card:hover, .stat-card:hover, .card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-panel), var(--shadow-glow);
+}
+
+/* Buttons */
+.army-btn, .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  color: var(--army-bg);
+  background: linear-gradient(135deg, var(--army-brass), var(--army-brass-dim));
+  border: 1px solid var(--army-gold);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.army-btn:hover, .btn:hover {
+  background: linear-gradient(135deg, var(--army-gold), var(--army-brass));
+  color: var(--army-bg);
+  box-shadow: 0 0 18px rgba(201, 162, 39, 0.5);
+  transform: translateY(-1px);
+}
+
+.army-btn.secondary {
+  background: transparent;
+  color: var(--army-brass);
+  border-color: var(--army-brass);
+}
+
+.army-btn.secondary:hover {
+  background: var(--glass-bg);
+  color: var(--army-gold);
+}
+
+/* Form inputs */
+.army-input, input[type="text"], input[type="password"], input[type="date"], input[type="number"],
+select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--army-white);
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.army-input:focus, input:focus, select:focus, textarea:focus {
+  border-color: var(--army-brass);
+  box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.2);
+}
+
+/* Sidebar */
+.army-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: var(--army-charcoal);
+  border-right: 1px solid var(--panel-border);
+  padding: 20px;
+  z-index: 100;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.army-sidebar.collapsed {
+  width: 72px;
+}
+
+.army-sidebar .logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--army-brass);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--panel-border);
+  margin-bottom: 16px;
+}
+
+.army-sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin: 6px 0;
+  color: var(--army-cream);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+}
+
+.army-sidebar .nav-icon {
+  opacity: 0.9;
+  font-size: 1.1em;
+}
+
+.army-sidebar nav a:hover,
+.army-sidebar nav a.active {
+  background: var(--glass-bg);
+  color: var(--army-brass);
+  border-left: 3px solid var(--army-brass);
+}
+
+.army-sidebar .logout-link {
+  color: #c45c5c;
+  margin-top: auto;
+}
+
+.army-sidebar .logout-link:hover {
+  background: rgba(139, 37, 0, 0.2);
+  border-left-color: var(--army-red);
+}
+
+/* Main content area */
+.army-main {
+  margin-left: 260px;
+  min-height: 100vh;
+  padding: 28px 32px;
+  transition: margin-left 0.3s ease;
+}
+
+.army-sidebar.collapsed ~ .army-main,
+body.sidebar-collapsed .army-main {
+  margin-left: 72px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .army-sidebar {
+    width: 72px;
+    padding: 12px 8px;
+  }
+  .army-sidebar .logo span:not(.icon) { display: none; }
+  .army-sidebar nav a span { display: none; }
+  .army-main {
+    margin-left: 72px;
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .army-sidebar {
+    transform: translateX(-100%);
+    width: 260px;
+  }
+  .army-sidebar.open {
+    transform: translateX(0);
+  }
+  .army-main {
+    margin-left: 0;
+    padding: 16px;
+  }
+}
